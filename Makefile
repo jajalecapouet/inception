@@ -17,10 +17,8 @@ vclean: 	clean
 			docker volume rm db_volume
 
 fclean:		clean
-			docker rm db
 			docker rmi db_image
 
 fvclean:	clean
-			docker rm db
 			docker rmi db_image
 			docker volume rm db_volume
