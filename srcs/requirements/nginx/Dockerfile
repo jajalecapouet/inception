@@ -1,7 +1,12 @@
-FROM debian:buster
+#	sources:
+#			https://www.youtube.com/watch?v=QLzwJpSkm8w&list=PLn6POgpklwWq0iz59-px2z-qjDdZKEvWd&index=9&ab_channel=xavki
 
-RUN apt-get update
+FROM	debian:buster
 
-RUN apt-get install -y nginx
+RUN		apt-get update && \
+		apt-get install -y nginx && \
+		rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT nginx && nginx
+VOLUME	/var/www/html/
+
+ENTRYPOINT	["nginx", "-g", "daemon off;"]

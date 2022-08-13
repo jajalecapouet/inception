@@ -13,12 +13,17 @@ down:
 
 clean:		down
 
+# destroy container + destroy wordpress database
 vclean: 	clean
 			docker volume rm db_volume
 
+# destroy container + image
 fclean:		clean
 			docker rmi db_image
+			docker rmi wordpress_image
 
+# destroy all
 fvclean:	clean
 			docker rmi db_image
+			docker rmi wordpress_image
 			docker volume rm db_volume

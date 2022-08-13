@@ -1,16 +1,34 @@
-version: '3'
+# Sources :
+#     https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/6211677-creez-un-fichier-docker-compose-pour-orchestrer-vos-conteneurs
+#     https://www.youtube.com/watch?v=kIqWxjDj4IU&ab_channel=AndrewSchmelyun
+#     https://github.com/SavchenkoDV/inception_School21_Ecole42/blob/master/srcs/docker-compose.yml
+#     
 
-volumes:
-  db_volume: {}
+version: '3'
 
 services:
 
   mariadb:
-    build: ./requirements/mariadb/
-    image: db_image
+    build:  ./requirements/mariadb/
+    image:  db_image
     container_name: db
-    restart: always
+    restart:  always
     volumes:
       - db_volume:/var/lib/mysql/
     environment:
       - MYSQL_ROOT_PASSWORD=test
+
+  wordpress:
+    depends_on:
+      - mariadb
+    build:  ./requirements/wordpress
+    image:  wordpress_image
+    container_name:  wordpress
+    restart:  always
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
