@@ -1,5 +1,5 @@
 # inception
-VM + Docker + docker + docker = inception
+VM + docker + docker + docker = inception
 
 journal de bord :
 
@@ -17,6 +17,9 @@ Il fallait entrer le port 80:80 pour que l'affichage fonctionne. On m'a dit que 
 15/08/2022 17h50 :
 
 Apprentissage du fonctionnement du handshake.
+
 Quelques connaissances acquises sur des commandes de creations de certificats et clef ssh de openssl.
+
 Connaissance acquise sur les commandes simples de nginx.
+
 Tentatives pour crypter et sécuriser les informations sur le port 80. Ne marche pas pour le moment.
