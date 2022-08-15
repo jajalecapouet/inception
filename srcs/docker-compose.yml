@@ -2,9 +2,9 @@
 #     https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/6211677-creez-un-fichier-docker-compose-pour-orchestrer-vos-conteneurs
 #     https://www.youtube.com/watch?v=kIqWxjDj4IU&ab_channel=AndrewSchmelyun
 #     https://github.com/SavchenkoDV/inception_School21_Ecole42/blob/master/srcs/docker-compose.yml
-#     
+#     https://www.youtube.com/watch?v=786dRn1Ioug&t=2s&ab_channel=Korben
 
-version: '3'
+version: '2.7'
 
 services:
 
