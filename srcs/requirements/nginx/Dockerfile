@@ -6,7 +6,8 @@ FROM	debian:buster
 
 RUN		apt-get update && \
 		apt-get install -y nginx openssl vim && \
-		rm -rf /var/lib/apt/lists/*
+		rm -rf /var/lib/apt/lists/* && \
+		mkdir certCA
 
 VOLUME	/var/www/html/
 
