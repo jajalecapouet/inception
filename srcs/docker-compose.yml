@@ -6,17 +6,49 @@
 
 version: '2.7'
 
+networks:
+  localhost:
+    name: inception_network
+
+volumes:
+  wp:
+    name: wordpress
+    driver: local
+    driver_opts:
+      device: /mnt/c/Users/nicol/OneDrive/Bureau/coding/projets/inception/srcs/data_wp
+      o: bind
+      type: none
+  db:
+    name: db
+    driver: local
+    driver_opts:
+      device: /mnt/c/Users/nicol/OneDrive/Bureau/coding/projets/inception/srcs/data_db
+      o: bind
+      type: none
+
 services:
+
+  nginx:
+    build:  ./requirements/nginx/
+    image:  nginx_img
+    container_name: nginx
+    ports:
+      - "443:443"
+    volumes:
+      - wp:/var/www/wordpress
+    networks:
+      - localhost
+    restart: always
 
   mariadb:
     build:  ./requirements/mariadb/
     image:  db_image
     container_name: db
-    restart:  always
+    networks:
+      - localhost
+    restart: always
     volumes:
-      - db_volume:/var/lib/mysql/
-    environment:
-      - MYSQL_ROOT_PASSWORD=test
+      - db:/var/lib/mysql
 
   wordpress:
     depends_on:
@@ -24,11 +56,8 @@ services:
     build:  ./requirements/wordpress
     image:  wordpress_image
     container_name:  wordpress
-    restart:  always
-    ports:
-      - "8000:80"
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
+    networks:
+      - localhost
+    volumes:
+      - wp:/var/www/wordpress
+    restart: always
