@@ -10,8 +10,6 @@ RUN		apt-get update && \
 		rm -rf /var/lib/apt/lists/* && \
 		mkdir certCA_utils
 
-#VOLUME	/var/www/html/
-
 EXPOSE	443
 
 COPY	./conf/site_config1.conf /etc/nginx/sites-enabled/site_config1.conf

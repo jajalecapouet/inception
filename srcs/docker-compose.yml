@@ -15,14 +15,14 @@ volumes:
     name: wordpress
     driver: local
     driver_opts:
-      device: /mnt/c/Users/nicol/OneDrive/Bureau/coding/projets/inception/srcs/data_wp
+      device: /Users/njaros/Desktop/projets/inception/srcs/data_wp
       o: bind
       type: none
   db:
     name: db
     driver: local
     driver_opts:
-      device: /mnt/c/Users/nicol/OneDrive/Bureau/coding/projets/inception/srcs/data_db
+      device: /Users/njaros/Desktop/projets/inception/srcs/data_db
       o: bind
       type: none
 
@@ -36,8 +36,6 @@ services:
       - "443:443"
     volumes:
       - wp:/var/www/wordpress
-    networks:
-      - localhost
     restart: always
 
   mariadb:
