@@ -40,3 +40,12 @@ I founded some Docker image for maria_db and worpress in internet wich I copied 
 Nothing works when I compose all together.
 
 After the "all together" tests, nginx alone isn't working anymore for unknow reason. The container shutdown instantly.
+
+######
+
+09/09/2022 14h22 :
+
+I ABSOLUTELY anderstand nothing of what I'm doing, I just copy advised parameters from the official website nginx and wordpress.
+
+Even if I read manuels I anderstand nothing, I guess inception project is just too much. 42 should introduce php, mariadb, container, ssl and nginx individualy before to ask us to do this project, because I'm totally lost and despear...
+Now I hate all of them.

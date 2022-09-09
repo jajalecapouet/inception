@@ -35,10 +35,15 @@ services:
     ports:
       - "443:443"
     volumes:
-      - wp:/var/www/wordpress
+      - wp:/inception.com
     restart: always
 
   mariadb:
+    environment:
+      - MYSQL_DATABASE=wp
+      - MYSQL_USER=
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     build:  ./requirements/mariadb/
     image:  db_image
     container_name: db
@@ -57,5 +62,5 @@ services:
     networks:
       - localhost
     volumes:
-      - wp:/var/www/wordpress
+      - wp:/inception.com
     restart: always

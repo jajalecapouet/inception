@@ -8,7 +8,8 @@ FROM	debian:buster
 RUN		apt-get update && \
 		apt-get install -y nginx openssl vim ca-certificates && \
 		rm -rf /var/lib/apt/lists/* && \
-		mkdir certCA_utils
+		mkdir certCA_utils && \
+		mkdir inception.com
 
 EXPOSE	443
 
